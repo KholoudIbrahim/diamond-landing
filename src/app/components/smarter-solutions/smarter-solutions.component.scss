@@ -1,0 +1,39 @@
+.smarter-solutions {
+    background: url("https://api.builder.io/api/v1/image/assets/TEMP/8b0200166bb13908f289858f7b9c6460f002b78c?width=2343") no-repeat center center / cover;
+    background-size: 50%;
+    z-index: 55555;
+        background-color: rgb(16, 8, 33) !important;
+    // padding-top: 1rem;
+    // width: 1171.4896191690395;
+    // height: 1199.9999950274614;
+    // transform: rotate(128.79deg);
+    // opacity: 0.5;
+    // top: 3909px;
+    // left: -109px;
+    // border-width: 2px;
+
+}
+
+.looper-background {
+    // background-size: 50%;
+    // width: 1171.4896191690395px;
+    // height: 1199.9999950274614px;
+    transform: rotate(128.79deg);
+    // angle: 128.79 deg;
+    opacity: 0.5;
+    // top: 0px;
+    left: -109px;
+    z-index: -1;
+}
+
+svg {
+    color: white;
+    width: 24.730976104736328px;
+    height: 23px;
+}
+
+button {
+    border-color: rgba(153, 85, 236, 1);
+    border-radius: 50%;
+    // border-radius: 1px;
+}

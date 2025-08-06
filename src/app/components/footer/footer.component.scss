@@ -1,0 +1,11 @@
+footer {
+    font-family: 'Inter', sans-serif;
+    width: 100vw;
+    a {
+        transition: color 0.2s ease-in-out;
+    }
+        input::placeholder {
+            // color: #aaa;
+                color: #9ca3af; // Tailwind gray-400
+        }
+}

@@ -1,0 +1,653 @@
+.boost-diamonds-section {
+  position: relative;
+  width: 100%;
+  min-height: 150vh;
+  overflow: hidden;
+  background: transparent;
+  // background: url("https://api.builder.io/api/v1/image/assets/TEMP/8b0200166bb13908f289858f7b9c6460f002b78c?width=2343") no-repeat center center / cover;
+  // background-size: 50%;
+  // z-index: 55555;
+}
+
+.background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.looper-background {
+  // position: absolute;
+  // width: 1171px;
+  // height: 1200px;
+  // left: 450px;
+  // margin-top: -10%;
+  // transform: rotate(-160.79deg);
+  // flex-shrink: 0;
+  // opacity: 0.5;
+  position: absolute;
+  width: 1171px;
+  height: 1243px;
+  left: 351px;
+  margin-top: -10%;
+  transform: rotate(0);
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
+.group-2-container {
+  position: absolute;
+  width: 1233px;
+  height: 1411px;
+  left: -357px;
+  top: 387px;
+  transform: rotate(31.828deg);
+  flex-shrink: 0;
+}
+
+.main-gradient-circle {
+  position: absolute;
+  width: 840px;
+  height: 840px;
+  left: 349px;
+  top: 295px;
+  transform: rotate(31.828deg);
+  flex-shrink: 0;
+  border-radius: 840.091px;
+  filter: blur(175px);
+}
+
+.blue-gradient-blur {
+  position: absolute;
+  width: 404px;
+  height: 573px;
+  left: 471px;
+  top: 740px;
+  transform: rotate(31.828deg);
+  flex-shrink: 0;
+  background: linear-gradient(180deg, rgba(24, 75, 255, 0.00) 0%, #174AFF 100%);
+  filter: blur(100px);
+}
+
+.texture-overlay {
+  position: absolute;
+  width: 1233px;
+  height: 1411px;
+  left: 0px;
+  top: 0px;
+  transform: rotate(31.828deg);
+  flex-shrink: 0;
+}
+
+.texture-image {
+  width: 1639px;
+  height: 1409px;
+  left: -219px;
+  top: -29px;
+  transform: rotate(31.828deg);
+  flex-shrink: 0;
+  opacity: 0.7;
+  mix-blend-mode: overlay;
+  position: absolute;
+}
+
+.content-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+}
+
+.section-description {
+  position: absolute;
+  width: 531px;
+  height: 292px;
+  left: 862px;
+  top: 159px;
+  color: #FFF;
+  font-family: 'Red Hat Display', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+}
+
+.boost-text {
+  color: rgba(208, 155, 255, 1);
+}
+
+.description-text {
+  color: rgba(255, 255, 255, 1);
+}
+
+.phones-container {
+  position: relative;
+  z-index: 2;
+}
+
+.phone-1 {
+  position: absolute;
+  width: 409px;
+  height: 826px;
+  left: 103px;
+  top: 9px;
+  flex-shrink: 0;
+  filter: drop-shadow(15px 15px 30px rgba(37, 28, 99, 0.9));
+}
+
+.phone-2 {
+  position: absolute;
+  width: 333px;
+  height: 673px;
+  left: 356px;
+  top: 159px;
+  flex-shrink: 0;
+  filter: drop-shadow(15px 15px 30px rgba(37, 28, 99, 0.9));
+}
+
+.data-analytics-container {
+  position: absolute;
+  z-index: 3;
+}
+
+.analytics-card {
+  position: absolute;
+  width: 306px;
+  height: 288px;
+  left: 536px;
+  top: 496px;
+  flex-shrink: 0;
+}
+
+// Font imports for Red Hat Display
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+// Responsive design
+@media (max-width: 1400px) {
+  .boost-diamonds-section {
+    height: 800px;
+  }
+
+  .section-description {
+    font-size: 48px;
+    width: 450px;
+    left: 700px;
+  }
+
+  .phone-1 {
+    width: 350px;
+    height: 700px;
+    left: 80px;
+  }
+
+  .phone-2 {
+    width: 280px;
+    height: 570px;
+    left: 300px;
+  }
+
+  .analytics-card {
+    width: 260px;
+    height: 240px;
+    left: 450px;
+    top: 400px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .boost-diamonds-section {
+    height: 600px;
+  }
+
+  .section-description {
+    font-size: 36px;
+    width: 400px;
+    left: 500px;
+    top: 100px;
+  }
+
+  .phone-1 {
+    width: 280px;
+    height: 560px;
+    left: 60px;
+  }
+
+  .phone-2 {
+    width: 220px;
+    height: 450px;
+    left: 240px;
+    top: 120px;
+  }
+
+  .analytics-card {
+    width: 220px;
+    height: 200px;
+    left: 350px;
+    top: 320px;
+  }
+}
+
+@media (max-width: 768px) {
+  .boost-diamonds-section {
+    height: 500px;
+  }
+
+  .section-description {
+    font-size: 28px;
+    width: 320px;
+    left: 20px;
+    top: 60px;
+    text-align: center;
+  }
+
+  .phone-1 {
+    width: 200px;
+    height: 400px;
+    left: 40px;
+    top: 250px;
+  }
+
+  .phone-2 {
+    width: 160px;
+    height: 320px;
+    left: 180px;
+    top: 280px;
+  }
+
+  .analytics-card {
+    width: 180px;
+    height: 160px;
+    left: 250px;
+    top: 320px;
+  }
+
+  .looper-background,
+  .group-2-container {
+    display: none;
+  }
+}
+
+// Company Values Culture Section
+.company-values-section {
+  position: relative;
+  // margin-top: 400px;
+  padding: 60px 0;
+  width: 100%;
+  z-index: 10;
+  padding-top: 55%;
+}
+
+.values-content {
+  display: flex;
+  align-items: center;
+  gap: 126px;
+  width: 1288px;
+  height: 362px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.values-left {
+  display: flex;
+  width: 641px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 38px;
+}
+
+.values-title {
+  position: relative;
+
+  .title-decoration {
+    width: 557px;
+    height: 149px;
+  }
+}
+
+.values-description {
+  align-self: stretch;
+  color: #FFF;
+  font-family: 'Red Hat Display', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 34px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  span {
+    font-family: 'Red Hat Display', -apple-system, Roboto, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 34px;
+    color: rgba(255, 255, 255, 1);
+  }
+}
+
+.values-right {
+  display: flex;
+  width: 521px;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+}
+
+.values-top-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 121px;
+}
+
+.values-bottom-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 80px;
+  align-self: stretch;
+}
+
+.value-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+
+  &.value-item-tall {
+    height: 156px;
+    justify-content: space-between;
+    gap: 30px;
+  }
+}
+
+.value-icon {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+
+  &.handshake-icon {
+    width: 93.913px;
+    height: 60px;
+  }
+}
+
+.checkmark-container {
+  position: relative;
+  width: 67.609px;
+  height: 60px;
+  flex-shrink: 0;
+}
+
+.checkmark-bg {
+  width: 57px;
+  height: 57px;
+  flex-shrink: 0;
+  background: linear-gradient(108deg, #C54A92 4.83%, #2E62EB 111.96%);
+  border: 0.5px solid #FFF;
+  border-radius: 3.099px;
+  position: absolute;
+  left: 0px;
+  top: 3px;
+}
+
+.checkmark-icon {
+  width: 53px;
+  height: 43px;
+  flex-shrink: 0;
+  position: absolute;
+  left: 15px;
+  top: 0px;
+}
+
+.value-label {
+  color: #FFF;
+  font-family: 'Poppins', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.72px;
+  text-align: center;
+
+  span {
+    font-family: 'Poppins', -apple-system, Roboto, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: rgba(255, 255, 255, 1);
+  }
+}
+
+// Responsive design for values section
+@media (max-width: 1400px) {
+  .company-values-section {
+    margin-top: 300px;
+    padding: 40px 20px;
+  }
+
+  .values-content {
+    width: 100%;
+    max-width: 1100px;
+    gap: 80px;
+    height: auto;
+  }
+
+  .values-left {
+    width: 550px;
+  }
+
+  .values-title .title-decoration {
+    width: 480px;
+    height: 130px;
+  }
+
+  .values-description {
+    font-size: 28px;
+
+    span {
+      font-size: 28px;
+    }
+  }
+
+  .values-right {
+    width: 450px;
+    gap: 50px;
+  }
+
+  .values-top-row {
+    gap: 80px;
+  }
+
+  .values-bottom-row {
+    gap: 60px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .company-values-section {
+    margin-top: 200px;
+    padding: 30px 15px;
+  }
+
+  .values-content {
+    flex-direction: column;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .values-left {
+    width: 100%;
+    max-width: 600px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .values-title .title-decoration {
+    width: 400px;
+    height: 110px;
+  }
+
+  .values-description {
+    font-size: 24px;
+    text-align: center;
+
+    span {
+      font-size: 24px;
+    }
+  }
+
+  .values-right {
+    width: 100%;
+    max-width: 500px;
+    gap: 40px;
+  }
+
+  .values-top-row {
+    gap: 60px;
+  }
+
+  .values-bottom-row {
+    gap: 50px;
+  }
+
+  .value-icon {
+    width: 70px;
+    height: 70px;
+
+    &.handshake-icon {
+      width: 82px;
+      height: 52px;
+    }
+  }
+
+  .value-label {
+    font-size: 20px;
+
+    span {
+      font-size: 20px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .company-values-section {
+    margin-top: 150px;
+    padding: 20px 10px;
+  }
+
+  .values-content {
+    gap: 40px;
+  }
+
+  .values-left {
+    gap: 30px;
+  }
+
+  .values-title .title-decoration {
+    width: 320px;
+    height: 90px;
+  }
+
+  .values-description {
+    font-size: 20px;
+
+    span {
+      font-size: 20px;
+    }
+  }
+
+  .values-right {
+    gap: 30px;
+  }
+
+  .values-top-row {
+    gap: 40px;
+  }
+
+  .values-bottom-row {
+    gap: 30px;
+  }
+
+  .value-item {
+    gap: 30px;
+
+    &.value-item-tall {
+      height: 130px;
+      gap: 20px;
+    }
+  }
+
+  .value-icon {
+    width: 60px;
+    height: 60px;
+
+    &.handshake-icon {
+      width: 70px;
+      height: 45px;
+    }
+  }
+
+  .checkmark-container {
+    width: 58px;
+    height: 52px;
+  }
+
+  .checkmark-bg {
+    width: 50px;
+    height: 50px;
+  }
+
+  .checkmark-icon {
+    width: 46px;
+    height: 38px;
+    left: 12px;
+  }
+
+  .value-label {
+    font-size: 18px;
+
+    span {
+      font-size: 18px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .company-values-section {
+    margin-top: 100px;
+  }
+
+  .values-title .title-decoration {
+    width: 280px;
+    height: 75px;
+  }
+
+  .values-description {
+    font-size: 18px;
+
+    span {
+      font-size: 18px;
+    }
+  }
+
+  .values-top-row,
+  .values-bottom-row {
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+  }
+
+  .value-item {
+    &.value-item-tall {
+      height: auto;
+      gap: 25px;
+    }
+  }
+
+  .value-label {
+    font-size: 16px;
+
+    span {
+      font-size: 16px;
+    }
+  }
+}

@@ -1,0 +1,125 @@
+<section class="diamonds-feature-section">
+  <!-- Background blur effects -->
+  <div class="background-effects">
+    <div class="blur-gradient"></div>
+    <div class="looper-background"></div>
+  </div>
+
+  <div class="container">
+    <!-- Mobile Layout -->
+    <!-- <div class="mobile-layout lg:hidden">
+      Phone mockups for mobile 
+      <div class="phone-container">
+        <img 
+          src="https://api.builder.io/api/v1/image/assets/TEMP/00fb4a61edb2d1d44cc4dfbb91e7a6ceee0fc18c?width=868"
+          alt="Mobile app showcase"
+          class="phone-main"
+        />
+        <img 
+          src="https://api.builder.io/api/v1/image/assets/TEMP/89ec576691ba820a7bf8e592585130879b7c4fd8?width=666"
+          alt="Mobile app showcase secondary"
+          class="phone-secondary"
+        />
+      </div>
+
+    Service card for mobile
+      <div class="service-card">
+        <p class="service-description">
+          A platform to discover and showcase talent in music, acting, dance, comedy, art and more.
+        </p>
+        <button class="service-button">
+          <span>Service</span>
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 14L12 19L17 14M12 19V5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </button>
+      </div>
+
+      Text content for mobile
+      <div class="text-content">
+        <p class="feature-subtitle">Our Diamonds Feature</p>
+        <h2 class="feature-title">
+          <span class="purple-text">Diamonds Joining Us</span>
+          <span class="white-text">, Sharing Your Talent And Make The World See You !</span>
+        </h2>
+      </div>
+
+       Community stats for mobile 
+      <div class="community-stats">
+        <div class="profile-images">
+          <div class="profile-circle" *ngFor="let profile of profiles; let i = index" [style.z-index]="profiles.length - i">
+            <img [src]="profile.image" [alt]="profile.alt" />
+          </div>
+        </div>
+        <div class="stats-text">
+          <div class="stats-indicator"></div>
+          <p>
+            <span class="white-text">+400K people of our </span>
+            <span class="purple-text">DIAMOND</span>
+          </p>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- Desktop Layout -->
+    <div class="desktop-layout hidden lg:flex">
+      <!-- Left side - Phone mockups -->
+      <div class="phones-section">
+        <img 
+          src="https://api.builder.io/api/v1/image/assets/TEMP/00fb4a61edb2d1d44cc4dfbb91e7a6ceee0fc18c?width=868"
+          alt="Mobile app showcase"
+          class="phone-main"
+        />
+        <img 
+          src="https://api.builder.io/api/v1/image/assets/TEMP/89ec576691ba820a7bf8e592585130879b7c4fd8?width=666"
+          alt="Mobile app showcase secondary"
+          class="phone-secondary"
+        />
+        
+        <!-- Service card positioned over phones -->
+        <div class="service-card-desktop">
+          <p class="service-description">
+            A platform to discover and showcase talent in music, acting, dance, comedy, art and more.
+          </p>
+          <button class="service-button">
+            <span>Service</span>
+            <div class="service-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 14L12 19L17 14M12 19V5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right side - Text content -->
+      <div class="content-section">
+        <div class="text-content-desktop">
+          <p class="feature-subtitle">Our Diamonds Feature</p>
+          <h2 class="feature-title">
+            <span class="purple-text">Diamonds Joining Us</span>
+            <span class="white-text">, Sharing Your Talent And Make The World See You !</span>
+          </h2>
+        </div>
+
+        <!-- Community stats -->
+        <div class="community-stats-desktop">
+          <div class="profile-images">
+            <div class="profile-circle" *ngFor="let profile of profiles; let i = index" [style.z-index]="profiles.length - i">
+              <img [src]="profile.image" [alt]="profile.alt" />
+            </div>
+          </div>
+          <div class="stats-text">
+            <div class="stats-indicator"></div>
+            <p>
+              <span class="white-text">+400K people of our </span>
+              <span class="purple-text">DIAMOND</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,356 @@
+.diamonds-feature-section {
+  @apply relative min-h-screen overflow-hidden py-16 px-4;
+  margin-top: 8%;
+
+  .background-effects {
+    @apply absolute inset-0 pointer-events-none;
+
+    .blur-gradient {
+      @apply absolute;
+      opacity: 0.87;
+      width: 201px;
+      height: 224px;
+      top: 35%;
+      left: 8%;
+      transform: rotate(-88deg);
+      background: linear-gradient(322deg, #C60786 7.42%, #8400FF 82.2%);
+      filter: blur(158px);
+      border-radius: 50%;
+    }
+
+    .looper-background {
+      @apply absolute opacity-50;
+      width: 75%;
+      height: 75%;
+      top: 0;
+      right: 0;
+      background-image: url('https://api.builder.io/api/v1/image/assets/TEMP/4a166d2b571f299b2f795243dd2f61576a7c31d0?width=2343');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  .container {
+    @apply relative z-10 max-w-7xl mx-auto;
+  }
+
+  // Mobile Layout
+  .mobile-layout {
+    @apply flex flex-col space-y-8;
+
+    .phone-container {
+      @apply relative flex justify-center items-center h-96;
+
+      .phone-main {
+        @apply w-60 h-auto relative z-10;
+        max-width: 240px;
+      }
+
+      .phone-secondary {
+        @apply absolute w-48 h-auto;
+        max-width: 192px;
+        right: 20%;
+        top: 20%;
+        filter: drop-shadow(-30px 4px 80px rgba(0, 0, 0, 0.6));
+
+        // position: absolute;
+        width: 413px;
+        // height: auto;
+        max-width: 80%;
+        right: -10%;
+        // top: 15%;
+        top: 26%;
+        // filter: drop-shadow(-30px 4px 80px rgba(0, 0, 0, 0.6));
+        z-index: 55555;
+      }
+    }
+
+    .service-card {
+      @apply bg-black bg-opacity-80 rounded-2xl border border-transparent p-6 mx-4;
+      background: rgba(18, 9, 37, 0.8);
+      box-shadow: -38px 0 50px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(0, 0, 0, 0);
+
+      .service-description {
+        @apply text-white text-base leading-normal mb-6;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      .service-button {
+        @apply flex items-center gap-3 text-white;
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
+        text-decoration: underline;
+
+        .service-icon {
+          @apply w-7 h-7 bg-purple-600 rounded-full flex items-center justify-center;
+          background-color: #842DFF;
+        }
+      }
+    }
+
+    .text-content {
+      @apply px-4;
+
+      .feature-subtitle {
+        @apply text-purple-500 text-xl font-semibold tracking-wider uppercase mb-4;
+        font-family: 'Poppins', sans-serif;
+        color: #842DFF;
+        letter-spacing: 2.8px;
+      }
+
+      .feature-title {
+        @apply text-3xl font-normal leading-tight;
+        font-family: 'Red Hat Display', sans-serif;
+        line-height: 130%;
+
+        .purple-text {
+          color: #D09BFF;
+        }
+
+        .white-text {
+          color: white;
+        }
+      }
+    }
+
+    .community-stats {
+      @apply flex flex-col items-center gap-4 px-4;
+
+      .profile-images {
+        @apply flex relative;
+
+        .profile-circle {
+          @apply w-16 h-16 rounded-full border-4 border-gray-900 overflow-hidden -ml-4 first:ml-0 relative;
+          border-color: #150824;
+
+          img {
+            @apply w-full h-full object-cover;
+          }
+        }
+      }
+
+      .stats-text {
+        @apply flex items-center gap-3;
+
+        .stats-indicator {
+          @apply w-3 h-3 bg-white rounded-full;
+        }
+
+        p {
+          @apply text-sm;
+          font-family: 'Inter', sans-serif;
+
+          .white-text {
+            color: white;
+          }
+
+          .purple-text {
+            color: #C9A3FF;
+          }
+        }
+      }
+    }
+  }
+
+  // Desktop Layout
+  .desktop-layout {
+    @apply items-center justify-between min-h-screen gap-12;
+
+    .phones-section {
+      @apply relative flex-1 flex justify-center items-center ;
+      min-height: 600px;
+
+      .phone-main {
+        @apply relative z-10;
+        width: 434px;
+        height: auto;
+        max-width: 100%;
+      }
+
+      .phone-secondary {
+        @apply absolute;
+
+        width: 413px;
+        height: auto;
+        max-width: 80%;
+        right: -10%;
+        top: 26%;
+        filter: drop-shadow(-30px 4px 80px rgba(0, 0, 0, 0.6));
+        z-index: 55555;
+      }
+
+      .service-card-desktop {
+        @apply absolute bg-black bg-opacity-80 rounded-2xl border border-transparent p-8;
+        background: rgba(18, 9, 37, 0.8);
+        box-shadow: -38px 0 50px rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(0, 0, 0, 0);
+        width: 411px;
+        height: 188px;
+        /* bottom: 0; */
+        top: 24%;
+        z-index: 5555554444;
+        left: 51%;
+
+        .service-description {
+          @apply text-white text-base leading-normal mb-6;
+          font-family: 'Poppins', sans-serif;
+          width: 303px;
+        }
+
+        .service-button {
+          @apply flex items-center gap-3 text-white;
+          font-family: 'Poppins', sans-serif;
+          font-size: 16px;
+          text-decoration: underline;
+
+          .service-icon {
+            @apply w-7 h-7 bg-purple-600 rounded-full flex items-center justify-center;
+            background-color: #842DFF;
+          }
+        }
+      }
+    }
+
+    .content-section {
+      @apply flex-1 flex flex-col justify-center gap-16;
+
+      .text-content-desktop {
+        .feature-subtitle {
+          @apply text-purple-500 text-3xl font-semibold tracking-wider uppercase mb-4;
+          font-family: 'Poppins', sans-serif;
+          color: #842DFF;
+          letter-spacing: 2.8px;
+          font-size: 28px;
+        }
+
+        .feature-title {
+          @apply text-6xl font-normal leading-tight;
+          font-family: 'Red Hat Display', sans-serif;
+          line-height: 130%;
+
+          .purple-text {
+            color: #D09BFF;
+          }
+
+          .white-text {
+            color: white;
+          }
+        }
+      }
+
+      .community-stats-desktop {
+        @apply flex items-center gap-8;
+
+        .profile-images {
+          @apply flex relative;
+
+          .profile-circle {
+            @apply w-20 h-20 rounded-full border-4 border-gray-900 overflow-hidden -ml-4 first:ml-0 relative;
+            border-color: #150824;
+
+            img {
+              @apply w-full h-full object-cover;
+            }
+          }
+        }
+
+        .stats-text {
+          @apply flex items-center gap-3;
+
+          .stats-indicator {
+            @apply w-3 h-3 bg-white rounded-full;
+          }
+
+          p {
+            @apply text-base;
+            font-family: 'Inter', sans-serif;
+
+            .white-text {
+              color: white;
+            }
+
+            .purple-text {
+              color: #C9A3FF;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive breakpoints
+@media (max-width: 640px) {
+  .diamonds-feature-section {
+    .mobile-layout {
+      .phone-container {
+        .phone-main {
+          @apply w-48;
+        }
+
+        .phone-secondary {
+          @apply w-40;
+        }
+      }
+
+      .text-content {
+        .feature-title {
+          @apply text-2xl;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .diamonds-feature-section {
+    .desktop-layout {
+      gap: 20rem;
+      .phones-section {
+        .phone-main {
+          width: 350px;
+          // width: 434px;
+          // height: 824;
+        }
+
+        .phone-secondary {
+          // width: 280px;
+          width: 333px;
+          height: 642px;
+        }
+
+        .service-card-desktop {
+          width: 350px;
+          height: 160px;
+
+          .service-description {
+            width: 260px;
+          }
+        }
+      }
+
+      .content-section {
+        .text-content-desktop {
+          .feature-title {
+            @apply text-5xl;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  .diamonds-feature-section {
+    .desktop-layout {
+            gap: 20rem;
+      .phones-section {
+        .service-card-desktop {
+          right: 10%;
+        }
+      }
+    }
+  }
+}
