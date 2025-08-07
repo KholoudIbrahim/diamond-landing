@@ -33,7 +33,7 @@ import { LoadingComponent } from './components/loading/loading.component';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'diamond-landing';
+  title = 'diamond-landing' ;
 }
 
 
