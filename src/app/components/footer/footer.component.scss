@@ -1,11 +1,16 @@
 footer {
     font-family: 'Inter', sans-serif;
+    overflow: hidden !important;
+    overflow-y: hidden !important;
     width: 100vw;
+    animation-delay: 0s;
+
     a {
         transition: color 0.2s ease-in-out;
     }
-        input::placeholder {
-            // color: #aaa;
-                color: #9ca3af; // Tailwind gray-400
-        }
+
+    input::placeholder {
+        // color: #aaa;
+        color: #9ca3af; // Tailwind gray-400
+    }
 }

@@ -2,7 +2,10 @@
     background: url("https://api.builder.io/api/v1/image/assets/TEMP/8b0200166bb13908f289858f7b9c6460f002b78c?width=2343") no-repeat center center / cover;
     background-size: 50%;
     z-index: 55555;
-        background-color: rgb(16, 8, 33) !important;
+    background-color: transparent !important;
+    overflow: hidden !important;
+    overflow-y: hidden !important;
+    // background: linear-gradient(257.95deg, rgba(198, 7, 134, 0.4) 16.9%, rgba(132, 0, 255, 0.4) 89.59%);
     // padding-top: 1rem;
     // width: 1171.4896191690395;
     // height: 1199.9999950274614;

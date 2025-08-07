@@ -3,6 +3,7 @@
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(calc(-183.86px * 3 - 30px)); // Move by width of 3 images + gaps
   }
@@ -12,8 +13,8 @@
   position: relative;
   // background: #000;
   overflow: hidden;
-  padding: 100px 0;
-  min-height: 150vh;
+  padding: 100px 0 50px; // Reduced bottom padding from 100px to 50px
+  min-height: auto; // Remove min-height constraint
 
   .background-effects {
     position: absolute;
@@ -82,7 +83,7 @@
     align-items: flex-start;
     justify-content: space-between;
     gap: 60px;
-    margin-bottom: 200px;
+    margin-bottom: 100px; // Reduced from 200px to 100px
 
     .content-section {
       flex: 1;
@@ -193,9 +194,13 @@
       }
 
       .exciting-challenges {
+        position: relative;
         align-self: stretch;
+        display: flex;
+        justify-content: flex-end;
 
         .exciting-text {
+          position: relative;
           color: #C59BFF;
           text-align: right;
           font-family: 'Poppins', -apple-system, Roboto, Helvetica, sans-serif;
@@ -204,6 +209,19 @@
           line-height: normal;
           text-transform: uppercase;
           margin: 0;
+          z-index: 2;
+        }
+
+        .looper-image {
+          position: absolute;
+          top: -446px;
+          right: 9%;
+          transform: translate(50%, -50%);
+          width: 1277.49px;
+          height: 1240px;
+          object-fit: contain;
+          z-index: -11111;
+          opacity: 0.8;
         }
       }
     }
@@ -261,6 +279,81 @@
 
       .boost-white {
         color: #FFF;
+      }
+    }
+  }
+
+  .fade-in-left {
+    animation: fadeInLeft 3s ease-out;
+    opacity: 0;
+    animation-fill-mode: forwards;
+  }
+
+  .fade-in-right {
+    animation: fadeInRight 3s ease-out;
+    opacity: 0;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  // Add animation delay for staggered effect
+  .content-section {
+    animation-delay: 0s;
+  }
+
+  .phones-section {
+    animation-delay: 0s;
+  }
+
+  @media screen and (max-width: 768px) {
+    .main-layout {
+      gap: 20px; // Reduce gap between sections
+      flex-direction: column;
+      padding: 0 20px;
+    }
+
+    .content-section {
+      margin-bottom: 30px; // Reduce bottom margin
+    }
+
+    .phones-section {
+      margin-top: 0; // Remove top margin
+      padding-top: 0; // Remove top padding
+    }
+
+    .phone-container {
+      transform: scale(0.8); // Optional: scale down phones for better fit
+      margin: 0 auto; // Center the phones
+    }
+
+    .exciting-challenges {
+      .looper-image {
+        width: 100%;
+        height: auto;
+        z-index: -1;
       }
     }
   }
@@ -322,74 +415,10 @@
 
 @media (max-width: 768px) {
   .challenges-section {
-    padding: 50px 0;
-
-    .container {
-      padding: 0 15px;
-    }
+    padding: 50px 0 30px; // Further reduce padding on mobile
 
     .main-layout {
-      .content-section {
-        padding-top: 50px;
-        gap: 20px;
-
-        .challenge-header {
-          .challenge-subtitle {
-            font-size: 24px;
-          }
-
-          .challenge-description {
-            font-size: 20px;
-          }
-        }
-
-        .profile-gallery {
-          width: 100%;
-          max-width: 400px;
-
-          .profile-images-container .profile-images-wrapper {
-            width: 100%;
-
-            .carousel-track {
-              gap: 5px;
-              width: calc(266px + 30px); // Adjusted for mobile image sizes
-
-              .profile-image {
-                width: calc(33.33% - 5px);
-                height: 80px;
-              }
-            }
-          }
-        }
-
-        .exciting-challenges .exciting-text {
-          font-size: 20px;
-        }
-      }
-
-      .phones-section {
-        width: 350px;
-        height: 525px;
-
-        .phone-container {
-          .phone-main {
-            width: 271px;
-            height: 525px;
-            left: 79px;
-          }
-
-          .phone-secondary {
-            width: 189px;
-            height: 366px;
-            top: 159px;
-          }
-        }
-      }
-    }
-
-    .boost-section .boost-title {
-      font-size: 32px;
-      line-height: 120%;
+      margin-bottom: 50px; // Reduce bottom margin on mobile
     }
   }
 }

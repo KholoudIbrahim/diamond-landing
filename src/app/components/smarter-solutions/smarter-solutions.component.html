@@ -1,10 +1,9 @@
-<section class="bg-[rgb(16, 8, 33)] text-white py-[15rem] smarter-solutions ">
+<section class="bg-[rgb(16, 8, 33)] text-white py-[15rem] smarter-solutions">
   <div
     class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-start gap-12"
   >
-  
     <!-- Left side -->
-    <div class="flex-1">
+    <div class="flex-1 fade-in-left" style="padding-left: 4rem; padding-right: 4rem" >
       <h2 class="text-3xl md:text-4xl font-light leading-tight mb-4">
         Building Smarter <br />
         <span class="font-semibold">Solutions Together.</span>
@@ -39,15 +38,28 @@
     <!-- <img src="https://api.builder.io/api/v1/image/assets/TEMP/8b0200166bb13908f289858f7b9c6460f002b78c?width=1171.4896191690395" alt="Looper-3" class="looper-background" style="z-index: -11111;display: block;"> -->
 
     <!-- Right side features -->
-    <div class="flex-1 flex flex-col gap-6">
+    <div class="flex-1 flex flex-col gap-6 fade-in-right" >
       <!-- Card 1 -->
       <div
         class="flex gap-4 items-start p-4 rounded-md border border-white/20 hover:bg-purple-900/10 transition"
       >
         <div
-          class="w-10 h-10 rounded-full border border-white flex items-center justify-center"
+          class="w-25 h-25 p-4 rounded-full border border-white flex items-center justify-center"
         >
-          <i class="fa-solid fa-code"></i>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5.14265 8.87979V15.9769M11.9998 8.87979V15.9769M8.57122 10.4055V14.4512M18.8569 8.87979V15.9769M15.4284 10.4055V14.4512M0.856934 6.85693V2.57122C0.856934 2.11656 1.03755 1.68053 1.35904 1.35904C1.68053 1.03755 2.11656 0.856934 2.57122 0.856934H6.85693M23.1426 6.85693V2.57122C23.1426 2.11656 22.962 1.68053 22.6405 1.35904C22.3191 1.03755 21.883 0.856934 21.4284 0.856934H17.1426M0.856934 17.1426V21.4284C0.856934 21.883 1.03755 22.3191 1.35904 22.6405C1.68053 22.962 2.11656 23.1426 2.57122 23.1426H6.85693M23.1426 17.1426V21.4284C23.1426 21.883 22.962 22.3191 22.6405 22.6405C22.3191 22.962 21.883 23.1426 21.4284 23.1426H17.1426"
+              stroke="white"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
         </div>
         <div>
           <h3 class="font-semibold text-base md:text-lg mb-1">
@@ -65,9 +77,22 @@
         class="flex gap-4 items-start p-4 rounded-md border border-[#8800FF] bg-[#180631] transition"
       >
         <div
-          class="w-10 h-10 rounded-full bg-[#8800FF] flex items-center justify-center"
+          class="w-25 h-25 p-4 rounded-full bg-[#8800FF] flex items-center justify-center"
         >
-          <i class="fa-solid fa-comments"></i>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.7613 8.12575L20.4584 3.42861M6.67557 12.9772L0.744141 23.1429H11.887L10.0356 16.68M23.0299 15.4286C21.0976 17.3609 18.4768 18.4464 15.7441 18.4464C13.0115 18.4464 10.3907 17.3609 8.45843 15.4286C6.52613 13.4963 5.44058 10.8756 5.44058 8.14289C5.44058 5.41022 6.52613 2.78947 8.45843 0.857178L23.0299 15.4286Z"
+              stroke="white"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
         </div>
         <div>
           <h3 class="font-semibold text-base md:text-lg mb-1">
@@ -85,9 +110,22 @@
         class="flex gap-4 items-start p-4 rounded-md border border-white/20 hover:bg-purple-900/10 transition"
       >
         <div
-          class="w-10 h-10 rounded-full border border-white flex items-center justify-center"
+          class="w-25 h-25 p-4 rounded-full border border-white flex items-center justify-center"
         >
-          <i class="fa-solid fa-mobile"></i>
+          <svg
+            width="25"
+            height="24"
+            viewBox="0 0 25 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.43262 13.7143C7.43262 13.7143 8.28976 16.2857 12.5755 16.2857C16.8612 16.2857 17.7183 13.7143 17.7183 13.7143M9.1469 8.57146C9.1469 8.11681 8.96629 7.68077 8.6448 7.35928C8.32331 7.03779 7.88727 6.85718 7.43262 6.85718C6.97796 6.85718 6.54192 7.03779 6.22043 7.35928C5.89894 7.68077 5.71833 8.11681 5.71833 8.57146M19.4326 8.57146C19.4326 8.11681 19.252 7.68077 18.9305 7.35928C18.609 7.03779 18.173 6.85718 17.7183 6.85718C17.2637 6.85718 16.8276 7.03779 16.5061 7.35928C16.1847 7.68077 16.004 8.11681 16.004 8.57146M23.7183 12C23.7183 14.9553 22.5444 17.7895 20.4547 19.8792C18.365 21.9689 15.5307 23.1429 12.5755 23.1429C9.62021 23.1429 6.78598 21.9689 4.69628 19.8792C2.60659 17.7895 1.43262 14.9553 1.43262 12V0.857178H23.7183V12Z"
+              stroke="white"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
         </div>
         <div>
           <h3 class="font-semibold text-base md:text-lg mb-1">
@@ -99,7 +137,6 @@
           </p>
         </div>
       </div>
-
     </div>
   </div>
 </section>

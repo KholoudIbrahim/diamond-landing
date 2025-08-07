@@ -7,6 +7,9 @@ import { BoostDiamondsComponent } from './components/boost-diamonds/boost-diamon
 import { FooterComponent } from './components/footer/footer.component';
 import { SmarterSolutionsComponent } from './components/smarter-solutions/smarter-solutions.component';
 import { TestimonialsCarouselComponent } from './components/testimonials-carousel/testimonials-carousel.component';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-root',
@@ -19,7 +22,9 @@ import { TestimonialsCarouselComponent } from './components/testimonials-carouse
     BoostDiamondsComponent,
     FooterComponent,
     SmarterSolutionsComponent,
-    TestimonialsCarouselComponent
+    TestimonialsCarouselComponent,
+    SlickCarouselModule,
+    
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

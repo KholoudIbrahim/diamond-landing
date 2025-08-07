@@ -1,7 +1,7 @@
 .hero-banner {
   position: relative;
   width: 100vw;
-  min-height: 140vh;
+  min-height: 160vh;
   // background: #000;
   overflow: hidden;
   overflow-y: hidden !important;
@@ -35,12 +35,91 @@
 
 // Header
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
-  left: 333px;
-  width: 1263px;
-  height: 50px;
-  z-index: 10;
+  // left: 333px;
+  width: 100%;
+  height: fit-content;
+  z-index: 1000;
+  background-color: #0c06188e;
+  padding-top: 1%;
+  // opacity: 0.8;
+
+  @media (max-width: 768px) {
+    padding-top: 2%;
+
+    .header-content {
+      flex-direction: column;
+      height: auto;
+      padding: 10px 20px;
+    }
+
+    .logo {
+      width: 150px;
+      height: auto;
+    }
+
+    .nav-container {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .nav-item {
+      padding: 8px 16px;
+      font-size: 14px;
+
+      svg {
+        width: 12px;
+        height: 12px;
+      }
+    }
+
+    .nav-dots {
+      gap: 12px;
+      height: 32px;
+    }
+
+    .nav-dot {
+      width: 5px;
+      height: 5px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .header-content {
+      padding: 8px 16px;
+    }
+
+    .logo {
+      width: 120px;
+    }
+
+    .nav-container {
+      gap: 6px;
+    }
+
+    .nav-item {
+      padding: 6px 12px;
+      font-size: 12px;
+
+      svg {
+        width: 10px;
+        height: 10px;
+      }
+    }
+
+    .nav-dots {
+      gap: 10px;
+      height: 28px;
+    }
+
+    .nav-dot {
+      width: 4px;
+      height: 4px;
+    }
+  }
 }
 
 .header-content {
@@ -70,20 +149,42 @@
   align-items: center;
   gap: 10px;
   border-radius: 24px;
-  border: 1px solid #842DFF;
-  color: #FFF;
+  border: 1px solid #842dff;
+  color: #fff;
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
   font-weight: 400;
   cursor: pointer;
   transition: all 0.3s ease;
+  position: relative;
+
+  // &:nth-child(1),:nth-child(2),:nth-child(3) {
+  //   padding: 0px 20px;
+  //   }
 
   &:hover {
     background: rgba(132, 45, 255, 0.1);
+    box-shadow: 0 0 15px rgba(132, 45, 255, 0.3);
   }
 
-  &.home-nav {
+  &.active {
     background: rgba(132, 0, 255, 0.25);
+    box-shadow: 0 0 20px rgba(132, 45, 255, 0.5);
+    border: 1px solid #bb9dff;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, #842dff, #bb9dff, #842dff);
+      border-radius: 26px;
+      z-index: -1;
+      opacity: 0.6;
+
+    }
   }
 
   svg {
@@ -103,8 +204,143 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #FFF;
+  background: #fff;
 }
+
+// Image Carousel
+.image-carousel {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  width: 627.12px;
+  height: 682.85px;
+  z-index: 5;
+
+  @media (max-width: 768px) {
+    width: 90%;
+    max-width: 400px;
+    height: 250px;
+    top: 40%;
+  }
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  // box-shadow: 0 0 30px rgba(132, 45, 255, 0.5);
+
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  animation: slideShow 20s infinite;
+
+  &:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  &:nth-child(2) {
+    animation-delay: 4s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 8s;
+  }
+
+  &:nth-child(4) {
+    animation-delay: 12s;
+  }
+
+  &:nth-child(5) {
+    animation-delay: 16s;
+  }
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  // background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  drop-shadow: 0 0 30px rgba(132, 45, 255, 0.5);
+  // overlay:auto;
+  padding: 30px 20px 20px;
+  border-radius: 0 0 20px 20px;
+}
+
+.image-title {
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+}
+
+// CSS-only slideshow animation
+@keyframes slideShow {
+
+  0%,
+  16% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+
+  20%,
+  96% {
+    opacity: 0;
+    transform: translateX(20px) scale(0.98);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(20px) scale(0.98);
+  }
+}
+
+.carousel-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  z-index: 10;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #842dff, #bb9dff);
+  transition: width 0.3s ease;
+  border-radius: 0 0 20px 20px;
+}
+
+
 
 // Investment Badge
 .investment-badge {
@@ -125,13 +361,14 @@
 
 .badge-content {
   display: flex;
-  padding: 10px 20px;
+  padding: 11px 18px;
+  cursor: pointer;
   justify-content: center;
   align-items: center;
   gap: 10px;
   border-radius: 24px;
-  border: 1px solid #842DFF;
-  color: #FFF;
+  border: 1px solid #842dff;
+  color: #fff;
   text-align: center;
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
@@ -144,7 +381,7 @@
 .main-title {
   position: absolute;
   left: 0;
-  top: 298px;
+  // top: 348px;
   width: 100vw;
   height: 273px;
   text-align: center;
@@ -154,23 +391,28 @@
   line-height: normal;
   text-transform: uppercase;
   z-index: 1;
+  // margin-top: 50px;
+  padding-block: 25%;
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #0C0618 0%, #D09BFF 40.5%, #D09BFF 59%, #0C0618 100%);
+  background: linear-gradient(90deg, #0c0618 0%, #d09bff 40.5%, #d09bff 59%, #0c0618 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: 'Red Hat Display', sans-serif;
   font-weight: 700;
   font-size: 198px;
+  // padding-top: 50% !important;
+  top: 10%;
+  // padding-bottom: 20% !important;
 }
 
 // Hero Title
 .hero-title {
   position: absolute;
   left: 332px;
-  top: 550px;
+  top: 750px;
   width: 431px;
   height: 121px;
   font-family: 'Red Hat Display', sans-serif;
@@ -179,22 +421,22 @@
   line-height: 120%;
 
   .text-white {
-    color: #FFF;
+    color: #fff;
     font-weight: 700;
   }
 
   .text-purple {
-    color: #C79EFF;
+    color: #c79eff;
     font-weight: 700;
   }
 
   .text-purple-light {
-    color: #BB9DFF;
+    color: #bb9dff;
     font-weight: 700;
   }
 
   .text-purple-main {
-    color: #D09BFF;
+    color: #d09bff;
     font-weight: 700;
   }
 }
@@ -222,7 +464,7 @@
   width: 301px;
   height: 156px;
   flex-shrink: 0;
-  color: #FFF;
+  color: #fff;
   font-family: 'Poppins', sans-serif;
   font-size: 20px;
   font-style: normal;
@@ -257,11 +499,12 @@
 .stats-container {
   position: absolute;
   bottom: 0;
-  left: 214px;
-  width: 1500px;
+  left: 0;
+  width: 100vw;
+  max-width: 1500px;
   height: 104px;
   flex-shrink: 0;
-  margin-bottom: 10%;
+  background: #120925;
 }
 
 .stats-background {
@@ -271,7 +514,7 @@
   width: 100%;
   height: 104px;
   flex-shrink: 0;
-  background: transparent;
+  background: #120925;
   border-radius: 20px;
 
   &::before {
@@ -282,8 +525,10 @@
     width: 620px;
     height: 104px;
     border-radius: 20px;
-    border: 0 solid #842DFF;
-    background: transparent;
+    border: 2px solid #842dff;
+    background: rgba(132, 45, 255, 0.1);
+    box-shadow: 0 0 20px rgba(132, 45, 255, 0.5),
+      inset 0 0 20px rgba(132, 45, 255, 0.2);
   }
 
   &::after {
@@ -294,8 +539,11 @@
     width: 620px;
     height: 104px;
     border-radius: 20px;
-    border: 0 solid #842DFF;
-    background: transparent;
+    border: 2px solid #842dff;
+    background: rgba(132, 45, 255, 0.1);
+    box-shadow: 0 0 20px rgba(132, 45, 255, 0.5),
+      inset 0 0 20px rgba(132, 45, 255, 0.2);
+    overflow: hidden;
   }
 }
 
@@ -303,10 +551,12 @@
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: space-between; // Add space between elements
   height: 104px;
-  padding: 0 120px;
+  padding: 0 150px;
   gap: 40px;
-  z-index: 1;
+  z-index: 10;
+  margin-top: -6.5%;
 }
 
 .stat-group {
@@ -315,13 +565,14 @@
   align-items: flex-start;
   flex-shrink: 0;
 
-  &:nth-child(2), &:nth-child(3) {
+  &:nth-child(2),
+  &:nth-child(3) {
     align-items: center;
   }
 }
 
 .stat-number {
-  color: #FFF;
+  color: #fff;
   font-family: 'Poppins', sans-serif;
   font-size: 32px;
   font-style: normal;
@@ -331,7 +582,7 @@
 }
 
 .stat-label {
-  color: #FFF;
+  color: #fff;
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -349,16 +600,16 @@
   gap: 10px;
   flex-shrink: 0;
   border-radius: 20px;
-  background: #842DFF;
+  background: #842dff;
   cursor: pointer;
   transition: all 0.3s ease;
 
   &:hover {
-    background: #9542FF;
+    background: #9542ff;
   }
 
   span {
-    color: #FFF;
+    color: #fff;
     text-align: center;
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
@@ -371,51 +622,111 @@
 
 .powered-by-text {
   position: absolute;
-  right: 787px;
-  top: 42px;
-  width: 98px;
-  height: 17px;
-  flex-shrink: 0;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
 
   span {
-    color: #FFF;
+    color: #fff;
     font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-    font-style: normal;
+    font-size: 14px;
     font-weight: 600;
     line-height: 100%;
     text-decoration-line: underline;
   }
 }
 
-.partner-logos {
-  position: absolute;
-  right: 135px;
-  top: 33px;
-  display: inline-flex;
+// Infinite scrolling partner carousel
+.partner-carousel {
+  position: relative;
+  display: flex;
   align-items: center;
-  width: 413px;
-  height: 36px;
+  overflow: hidden;
+  width: 450px;
+  margin-left: 120px;
+}
+
+.partner-track {
+  display: flex;
+  animation: scroll 30s linear infinite;
+  margin-left: 60px;
+  width: 200%;
   gap: 0;
 }
 
-.partner-logo {
+.partner-logos {
   display: flex;
-  height: 36px;
-  flex-direction: column;
+  gap: 30px;
   align-items: center;
-  gap: 10px;
-  border-radius: 18.5px;
+  min-width: 100%;
+  white-space: nowrap;
+
+  img,
+  svg {
+    transform: scale(0.7);
+    flex-shrink: 0;
+  }
 }
 
-.partner-logos svg {
-  display: flex;
-  height: 36px;
-  padding: 5px 8px;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  border-radius: 18.5px;
+// Update the right rectangle to properly contain the carousel
+.stats-background {
+  &::after {
+    // ...existing code...
+    width: 620px;
+    height: 104px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+}
+
+// Animations
+@keyframes navGlow {
+
+  0%,
+  100% {
+    opacity: 0.6;
+    box-shadow: 0 0 20px rgba(132, 45, 255, 0.5);
+  }
+
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 30px rgba(132, 45, 255, 0.8);
+  }
+}
+
+@keyframes statsGlowLeft {
+
+  0%,
+  100% {
+    box-shadow:
+      0 0 20px rgba(132, 45, 255, 0.5),
+      inset 0 0 20px rgba(132, 45, 255, 0.2);
+  }
+
+  50% {
+    box-shadow:
+      0 0 40px rgba(132, 45, 255, 0.8),
+      inset 0 0 40px rgba(132, 45, 255, 0.4);
+  }
+}
+
+@keyframes statsGlowRight {
+
+  0%,
+  100% {
+    box-shadow:
+      0 0 20px rgba(187, 157, 255, 0.5),
+      inset 0 0 20px rgba(187, 157, 255, 0.2);
+  }
+
+  50% {
+    box-shadow:
+      0 0 40px rgba(187, 157, 255, 0.8),
+      inset 0 0 40px rgba(187, 157, 255, 0.4);
+  }
 }
 
 // Responsive Design
@@ -456,11 +767,18 @@
 }
 
 @media (max-width: 768px) {
+  .hero-banner {
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+  }
+
   .header-content {
     padding: 0 20px;
     flex-direction: column;
     height: auto;
     gap: 20px;
+    order: 1;
   }
 
   .nav-container {
@@ -469,46 +787,280 @@
   }
 
   .main-title {
-    left: 20px;
-    width: calc(100vw - 40px);
-    font-size: 80px;
-    top: 200px;
+    position: static;
+    width: 100%;
+    font-size: 60px;
+    text-align: center;
+    margin: 20px 0;
+    order: 2;
   }
 
   .gradient-text {
-    font-size: 80px;
+    font-size: 60px;
   }
 
   .hero-title {
-    left: 20px;
-    top: 400px;
-    font-size: 28px;
-    width: calc(100vw - 40px);
+    position: static;
+    font-size: 24px;
+    width: 100%;
+    text-align: center;
+    margin: 20px 0;
+    padding: 0 20px;
+    order: 4;
   }
 
   .investment-badge {
-    left: 20px;
-    top: 150px;
+    position: static;
+    margin: 20px auto;
+    order: 3;
   }
 
   .side-content {
     position: static;
     margin: 20px auto;
     text-align: center;
+    order: 6;
   }
 
-  .stats-section {
+  .image-carousel {
+    position: static;
+    width: 95%;
+    height: 300px;
+    margin: 20px auto;
+    order: 5;
+  }
+
+  .stats-container {
     position: static;
     width: 100%;
     left: 0;
     padding: 20px;
-    flex-wrap: wrap;
     height: auto;
     margin-top: 50px;
+    background: #120925;
+    order: 7;
   }
 
-  .logo-list {
+  .stats-content {
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+  }
+
+  .stats-background {
+    &::before,
+    &::after {
+      left: 0;
+      right: 0;
+      width: 100%;
+    }
+  }
+
+  .partner-logos {
+    position: static;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 20px;
+  }
+
+  // Hide crypto icons on mobile for cleaner layout
+  .ethereum-icon,
+  .monero-icon,
+  .litecoin-icon {
+    display: none;
+  }
+}
+
+// Additional Animations
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+// Homepage specific animations handled by global styles
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: rotate(10.292deg) translateY(0px);
+  }
+
+  50% {
+    transform: rotate(10.292deg) translateY(-10px);
+  }
+}
+
+// Add download modal styles
+.download-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(12, 6, 24, 0.95);
+  border: 2px solid #842dff;
+  border-radius: 20px;
+  padding: 30px;
+  z-index: 1000;
+  display: none;
+  box-shadow: 0 0 40px rgba(132, 45, 255, 0.3);
+
+  &.show {
+    display: block;
+    animation: modalFadeIn 0.3s ease;
+  }
+
+  .store-buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+
+    .store-button {
+      padding: 12px 24px;
+      border-radius: 12px;
+      background: linear-gradient(45deg, #842dff, #bb9dff);
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(132, 45, 255, 0.4);
+      }
+    }
+  }
+}
+
+// Add wave animation to play button
+.play-button {
+  animation: wave 2s infinite;
+
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes wave {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+// Add backdrop
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: 999;
+  display: none;
+
+  &.show {
+    display: block;
+  }
+}
+
+// Crypto Icons positioning
+.ethereum-icon {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  left: 15%;
+  top: 45%;
+  --rotation: 10.292deg;
+  transform: rotate(var(--rotation));
+  animation: floatIcon 6s ease-in-out infinite;
+  z-index: 2;
+}
+
+.monero-icon {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  right: 15%;
+  top: 45%;
+  --rotation: -15deg;
+  transform: rotate(var(--rotation));
+  animation: floatIcon 6s ease-in-out infinite;
+  animation-delay: 2s;
+  z-index: 2;
+}
+
+.litecoin-icon {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  left: 30%;
+  top: 10%;
+  --rotation: 5deg;
+  transform: rotate(var(--rotation));
+  animation: floatIcon 6s ease-in-out infinite;
+  animation-delay: 4s;
+  z-index: 2;
+}
+
+@keyframes floatIcon {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--rotation));
+  }
+
+  50% {
+    transform: translateY(-20px) rotate(var(--rotation));
+  }
+}
+
+// Mobile responsiveness
+@media (max-width: 768px) {
+  .ethereum-icon {
+    width: 100px;
+    height: 100px;
+    left: 5%;
+    top: 40%;
+  }
+
+  .monero-icon {
+    width: 100px;
+    height: 100px;
+    right: 5%;
+    top: 40%;
+  }
+
+  .litecoin-icon {
+    width: 90px;
+    height: 90px;
+    left: 50%;
+    top: 55%;
   }
 }

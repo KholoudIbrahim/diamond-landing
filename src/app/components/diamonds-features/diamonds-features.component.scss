@@ -51,7 +51,7 @@
         @apply absolute w-48 h-auto;
         max-width: 192px;
         right: 20%;
-        top: 20%;
+        top: 31%;
         filter: drop-shadow(-30px 4px 80px rgba(0, 0, 0, 0.6));
 
         // position: absolute;
@@ -135,7 +135,7 @@
         @apply flex items-center gap-3;
 
         .stats-indicator {
-          @apply w-3 h-3 bg-white rounded-full;
+          @apply w-2 h-2 bg-white rounded-full;
         }
 
         p {
@@ -157,9 +157,13 @@
   // Desktop Layout
   .desktop-layout {
     @apply items-center justify-between min-h-screen gap-12;
+    display: flex;
+    gap: 48px;
+    align-items: center;
+    justify-content: space-between;
 
     .phones-section {
-      @apply relative flex-1 flex justify-center items-center ;
+      @apply relative flex-1 flex justify-center items-center;
       min-height: 600px;
 
       .phone-main {
@@ -191,7 +195,7 @@
         /* bottom: 0; */
         top: 24%;
         z-index: 5555554444;
-        left: 51%;
+        left: 35%;
 
         .service-description {
           @apply text-white text-base leading-normal mb-6;
@@ -308,6 +312,7 @@
   .diamonds-feature-section {
     .desktop-layout {
       gap: 20rem;
+
       .phones-section {
         .phone-main {
           width: 350px;
@@ -345,12 +350,100 @@
 @media (min-width: 1280px) {
   .diamonds-feature-section {
     .desktop-layout {
-            gap: 20rem;
+      gap: 20rem;
+
       .phones-section {
         .service-card-desktop {
           right: 10%;
         }
       }
     }
+  }
+}
+
+// Mobile responsiveness
+@media screen and (max-width: 1024px) {
+  .desktop-layout {
+    flex-direction: column;
+    padding: 20px;
+    gap: 32px;
+  }
+
+  .phones-section {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+
+    .phone-secondary {
+      max-width: 80%;
+    }
+
+    .service-card-desktop {
+      width: 280px;
+      padding: 20px;
+    }
+  }
+
+  .content-section {
+    width: 100%;
+    text-align: center;
+
+    .text-content-desktop {
+      margin-bottom: 24px;
+    }
+
+    .feature-title {
+      font-size: clamp(24px, 4vw, 32px);
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .diamonds-feature-section {
+    margin-top: 2%; // Reduced from 8% to 2% for mobile
+  }
+
+  .phones-section {
+    max-width: 100%;
+
+    .phone-secondary {
+      max-width: 70%;
+    }
+
+    .service-card-desktop {
+      width: 240px;
+      padding: 16px;
+    }
+  }
+
+  .community-stats-desktop {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .stats-text {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .desktop-layout {
+    gap: 24px;
+  }
+
+  .phones-section {
+    .service-card-desktop {
+      width: 200px;
+      padding: 12px;
+    }
+  }
+
+  .feature-subtitle {
+    font-size: 14px;
+  }
+
+  .feature-title {
+    font-size: 20px;
   }
 }
