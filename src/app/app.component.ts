@@ -9,7 +9,10 @@ import { SmarterSolutionsComponent } from './components/smarter-solutions/smarte
 import { TestimonialsCarouselComponent } from './components/testimonials-carousel/testimonials-carousel.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { CommonModule } from '@angular/common';
-
+import { LoadingService} from './shared/services/loading.service';
+import {LoadingInterceptor} from './shared/interceptors/loading.interceptor';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +27,7 @@ import { CommonModule } from '@angular/common';
     SmarterSolutionsComponent,
     TestimonialsCarouselComponent,
     SlickCarouselModule,
-    
+    LoadingComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -32,3 +35,5 @@ import { CommonModule } from '@angular/common';
 export class AppComponent {
   title = 'diamond-landing';
 }
+
+
