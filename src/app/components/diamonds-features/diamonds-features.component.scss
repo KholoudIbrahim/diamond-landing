@@ -466,3 +466,132 @@
   margin-top: 25%;
 }
 }
+
+
+
+// desktop box
+@media (max-width: 480px) {
+    .content-section {
+        order: 1;
+        margin-top:40%;
+      }
+    
+      .phones-section {
+        order: 2;
+        margin-top: 0;
+      }
+  .diamonds-feature-section .desktop-layout .phones-section .service-card-desktop {
+      position: absolute;
+      border-radius: 1rem;
+      border-width: 1px;
+      border-color: transparent;
+      background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
+      --tw-bg-opacity: 0.8;
+      padding: 2rem;
+      background: rgba(18, 9, 37, 0.8);
+      box-shadow: -38px 0 50px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(0, 0, 0, 0);
+      width: 222px;
+      height: 126px;
+      top: 24%;
+      z-index: 5555554444;
+      left: 40%;
+    }
+  
+    .diamonds-feature-section .desktop-layout .phones-section .service-card-desktop .service-description {
+      margin-bottom: 0.3rem;
+      font-size: .7rem;
+      line-height: 1.5rem;
+      line-height: 1.5;
+      --tw-text-opacity: 1;
+      color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+      font-family: "Poppins", sans-serif;
+      width: 207px;
+    }
+  
+    .diamonds-feature-section .desktop-layout .phones-section .service-card-desktop .service-button {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      --tw-text-opacity: 1;
+      color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+      font-family: "Poppins", sans-serif;
+      font-size: 13px;
+      text-decoration: underline;
+    }
+  
+    .diamonds-feature-section .desktop-layout .phones-section .service-card-desktop .service-button .service-icon {
+      display: flex;
+      height: 1.55rem;
+      width: 1.55rem;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+      --tw-bg-opacity: 1;
+      background-color: rgb(147 51 234 / var(--tw-bg-opacity, 1));
+      background-color: #842DFF;
+    }
+  
+}
+@media (max-width: 768px) {
+  .content-section{
+    order:1;
+    margin-top:40%;
+  }
+  .phones-section{
+    order:2;
+    margin-top:0;
+  }
+.diamonds-feature-section .desktop-layout .phones-section .service-card-desktop {
+    position: absolute;
+    border-radius: 1rem;
+    border-width: 1px;
+    border-color: transparent;
+    background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
+    --tw-bg-opacity: 0.8;
+    padding: 2rem;
+    background: rgba(18, 9, 37, 0.8);
+    box-shadow: -38px 0 50px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(0, 0, 0, 0);
+    width: 222px;
+    height: 126px;
+    top: 24%;
+    z-index: 5555554444;
+    left: 40%;
+  }
+
+  .diamonds-feature-section .desktop-layout .phones-section .service-card-desktop .service-description {
+    margin-bottom: 0.3rem;
+    font-size: .7rem;
+    line-height: 1.5rem;
+    line-height: 1.5;
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+    font-family: "Poppins", sans-serif;
+    width: 207px;
+  }
+
+  .diamonds-feature-section .desktop-layout .phones-section .service-card-desktop .service-button {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    text-decoration: underline;
+  }
+
+  .diamonds-feature-section .desktop-layout .phones-section .service-card-desktop .service-button .service-icon {
+    display: flex;
+    height: 1.55rem;
+    width: 1.55rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    --tw-bg-opacity: 1;
+    background-color: rgb(147 51 234 / var(--tw-bg-opacity, 1));
+    background-color: #842DFF;
+  }
+  
+}
