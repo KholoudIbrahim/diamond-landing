@@ -1,0 +1,218 @@
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #0C0618;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.8s ease-out;
+
+  &.fade-out {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.loading-container {
+  text-align: center;
+  z-index: 2;
+  position: relative;
+}
+
+.logo-container {
+  margin-bottom: 2rem;
+  
+  .floating-logo {
+    width: 150px;
+    height: auto;
+    animation: floatUpDown 3s ease-in-out infinite;
+    filter: drop-shadow(0 10px 20px rgba(132, 45, 255, 0.3));
+  }
+
+  .logo-placeholder {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #842DFF, #D09BFF);
+    border-radius: 20px;
+    animation: floatUpDown 3s ease-in-out infinite;
+    filter: drop-shadow(0 10px 20px rgba(132, 45, 255, 0.3));
+
+    .placeholder-text {
+      font-family: 'Red Hat Display', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: white;
+      text-align: center;
+    }
+  }
+}
+
+.loading-text {
+  margin-bottom: 2rem;
+  
+  .text-gradient {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    background: linear-gradient(90deg, #D09BFF 0%, #842DFF 50%, #D09BFF 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textShimmer 2s ease-in-out infinite;
+  }
+}
+
+.loading-progress {
+  width: 300px;
+  margin: 0 auto;
+  
+  .progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(132, 45, 255, 0.2);
+    border-radius: 2px;
+    overflow: hidden;
+    
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #842DFF, #D09BFF, #842DFF);
+      background-size: 200% 100%;
+      border-radius: 2px;
+      animation: progressFlow 1.5s ease-in-out infinite;
+      transition: width 0.3s ease-out;
+    }
+  }
+}
+
+.particles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #842DFF;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: particleFloat 4s linear infinite;
+  
+  &:nth-child(odd) {
+    background: #D09BFF;
+  }
+  
+  &:nth-child(3n) {
+    width: 2px;
+    height: 2px;
+  }
+  
+  &:nth-child(5n) {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+// Keyframe animations
+@keyframes floatUpDown {
+  0%, 100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  25% {
+    transform: translateY(-20px);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(-30px);
+    opacity: 0.8;
+  }
+  75% {
+    transform: translateY(-20px);
+    opacity: 0.9;
+  }
+}
+
+@keyframes textShimmer {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes progressFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .loading-container {
+    padding: 0 2rem;
+  }
+  
+  .logo-container .floating-logo {
+    width: 120px;
+  }
+  
+  .loading-text .text-gradient {
+    font-size: 1.25rem;
+  }
+  
+  .loading-progress {
+    width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-container .floating-logo {
+    width: 100px;
+  }
+  
+  .loading-text .text-gradient {
+    font-size: 1.1rem;
+  }
+  
+  .loading-progress {
+    width: 200px;
+  }
+}

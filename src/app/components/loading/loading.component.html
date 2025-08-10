@@ -1,7 +1,33 @@
-<div class="fixed inset-0 z-50 bg-white dark:bg-gray-900 bg-opacity-80 flex justify-center items-center">
-  <img
-    src="assets/images/logo 1.png"
-    alt="Loading..."
-    class="w-24 h-22 animate-floating fade-in"
-  />
+<div class="loading-screen" [class.fade-out]="isLoaded">
+  <div class="loading-container">
+    <div class="logo-container flex items-center justify-center">
+      <img
+        src="assets/images/logo 1.png"
+        alt="Logo"
+        class="floating-logo"
+        (error)="onLogoError($event)"
+        [hidden]="logoError" />
+      <div *ngIf="logoError" class="logo-placeholder">
+        <div class="placeholder-text">DIAMOND</div>
+      </div>
+    </div>
+    <div class="loading-text">
+      <span class="text-gradient">Loading Diamond...</span>
+    </div>
+    <div class="loading-progress">
+      <div class="progress-bar">
+        <div class="progress-fill" [style.width.%]="progress"></div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Background particles animation -->
+  <div class="particles-container">
+    <div class="particle" *ngFor="let particle of particles; let i = index" 
+         [style.left.px]="particle.x"
+         [style.top.px]="particle.y"
+         [style.animation-delay.s]="particle.delay"
+         [style.animation-duration.s]="particle.duration">
+    </div>
+  </div>
 </div>

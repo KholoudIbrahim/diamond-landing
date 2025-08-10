@@ -1,7 +1,12 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewInit, Inject, PLATFORM_ID, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { isPlatformBrowser } from '@angular/common';
-// import { ScrollAnimationService } from '../../services/scroll-animation.service';
+
+interface NavItem {
+  name: string;
+  isActive: boolean;
+  targetSelector?: string;
+}
 
 @Component({
   selector: 'app-homepage',
@@ -10,23 +15,25 @@ import { isPlatformBrowser } from '@angular/common';
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss'],
 })
-export class HomepageComponent {
+export class HomepageComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('mainTitle', { static: false }) mainTitle!: ElementRef;
   @ViewChild('heroTitle', { static: false }) heroTitle!: ElementRef;
   @ViewChild('statsContainer', { static: false }) statsContainer!: ElementRef;
   @ViewChild('sideContent', { static: false }) sideContent!: ElementRef;
+
   currentSlide = 0;
   carouselInterval: any;
   activeNavItem = 0;
   showDownloadModal = false;
   private isBrowser: boolean;
+  private navObserver?: IntersectionObserver;
 
-  // Navigation items
-  navItems = [
-    { name: 'Home', isActive: true },
-    { name: 'Features', isActive: false },
-    { name: 'Company', isActive: false },
-    { name: 'Contact Us', isActive: false },
+  // Navigation items with target selectors
+  navItems: NavItem[] = [
+    { name: 'Home', isActive: true, targetSelector: 'app-homepage' },
+    { name: 'Features', isActive: false, targetSelector: 'app-diamonds-features' },
+    { name: 'Company', isActive: false, targetSelector: 'app-boost-diamonds' },
+    { name: 'Contact Us', isActive: false, targetSelector: 'app-footer' },
   ];
 
   // Carousel images defined in TypeScript
@@ -65,50 +72,23 @@ export class HomepageComponent {
   }
 
   ngOnInit() {
-    // No auto-play to prevent SSR timeout
+    // Component initialization
   }
 
   ngAfterViewInit() {
-    // Register elements for scroll animations with delays
-    // setTimeout(() => {
-    //   if (this.mainTitle) {
-    //     this.scrollAnimationService.registerElement({
-    //       element: this.mainTitle,
-    //       animationClass: 'fade-in-up',
-    //       delay: 100
-    //     });
-    //   }
-
-    //   if (this.heroTitle) {
-    //     this.scrollAnimationService.registerElement({
-    //       element: this.heroTitle,
-    //       animationClass: 'fade-in-up',
-    //       delay: 300
-    //     });
-    //   }
-
-    //   if (this.sideContent) {
-    //     this.scrollAnimationService.registerElement({
-    //       element: this.sideContent,
-    //       animationClass: 'fade-in-right',
-    //       delay: 500
-    //     });
-    //   }
-
-    //   if (this.statsContainer) {
-    //     this.scrollAnimationService.registerElement({
-    //       element: this.statsContainer,
-    //       animationClass: 'fade-in-up',
-    //       delay: 200
-    //     });
-    //   }
-    // }, 100);
+    if (this.isBrowser) {
+      setTimeout(() => {
+        this.setupNavigationDetection();
+      }, 1000);
+    }
   }
 
-  // ngOnDestroy() {
-  //   this.stopCarousel();
-  //   this.scrollAnimationService.destroy();
-  // }
+  ngOnDestroy() {
+    this.stopCarousel();
+    if (this.navObserver) {
+      this.navObserver.disconnect();
+    }
+  }
 
   startCarousel() {
     this.stopCarousel(); // Clear any existing interval
@@ -138,14 +118,16 @@ export class HomepageComponent {
     this.currentSlide = index;
   }
 
-  setActiveNav(index: number) {
+  setActiveNav(index: number, shouldScroll: boolean = true) {
     this.navItems.forEach((item, i) => {
       item.isActive = i === index;
     });
     this.activeNavItem = index;
 
-    // Navigate to different sections based on nav item
-    this.navigateToSection(index);
+    // Navigate to different sections based on nav item only if manually triggered
+    if (shouldScroll) {
+      this.navigateToSection(index);
+    }
   }
 
   navigateToSection(index: number) {
@@ -160,9 +142,8 @@ export class HomepageComponent {
       case 1: // Diamond features
         targetElement = document.querySelector('app-diamonds-features');
         break;
-      case 2: // Company values culture section
-        targetElement = document.querySelector('app-boost-diamonds .company-values-section') ||
-                       document.querySelector('app-boost-diamonds');
+      case 2: // Boost diamonds / Company section
+        targetElement = document.querySelector('app-boost-diamonds');
         break;
       case 3: // Footer
         targetElement = document.querySelector('app-footer');
@@ -177,7 +158,59 @@ export class HomepageComponent {
     }
   }
 
+  openDownloadModal() {
+    this.showDownloadModal = true;
+    if (this.isBrowser) {
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
   closeModal() {
     this.showDownloadModal = false;
+    if (this.isBrowser) {
+      document.body.style.overflow = 'auto';
+    }
   }
+
+
+  private setupNavigationDetection() {
+    if (!this.isBrowser) return;
+
+    this.navObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const targetElement = entry.target as HTMLElement;
+            const targetSelector = targetElement.tagName.toLowerCase();
+
+            // Find corresponding nav item
+            const navIndex = this.navItems.findIndex(item =>
+              item.targetSelector?.includes(targetSelector)
+            );
+
+            if (navIndex !== -1 && !this.navItems[navIndex].isActive) {
+              this.setActiveNav(navIndex, false);
+            }
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '-80px 0px -60% 0px'
+      }
+    );
+
+    // Observe all section elements
+    setTimeout(() => {
+      this.navItems.forEach((item) => {
+        if (item.targetSelector) {
+          const element = document.querySelector(item.targetSelector);
+          if (element) {
+            this.navObserver?.observe(element);
+          }
+        }
+      });
+    }, 500);
+  }
+
 }

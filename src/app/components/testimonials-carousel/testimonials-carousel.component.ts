@@ -1,6 +1,7 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewInit, Inject, PLATFORM_ID, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { isPlatformBrowser } from '@angular/common';
+import { register } from 'swiper/element/bundle';
 // import { ScrollAnimationService } from '../../services/scroll-animation.service';
 
 @Component({
@@ -9,6 +10,7 @@ import { isPlatformBrowser } from '@angular/common';
   imports: [CommonModule],
   templateUrl: './testimonials-carousel.component.html',
   styleUrls: ['./testimonials-carousel.component.scss'],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   // Temporarily disable animations for performance
   animations: []
 })
@@ -59,6 +61,9 @@ export class TestimonialsCarouselComponent implements OnInit, OnDestroy, AfterVi
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
+    if (this.isBrowser) {
+      register();
+    }
   }
 
   ngOnInit() {

@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;600;700&family=Red+Hat+Display:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;600;700&family=Red+Hat+Display:wght@400;500;600;700;800&display=swap');
+@import 'aos/dist/aos.css';
 
 @tailwind base;
 @tailwind components;
@@ -13,117 +14,151 @@ body {
   background-color: rgb(16, 8, 33) !important;
   overflow-x: hidden;
   max-width: 100vw;
+  width: 100%;
 }
 
 html {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 * {
   box-sizing: border-box;
-  // animation-delay: 0s;
 }
 
-// Global Scroll Animation Classes
-.animate-element {
-  transition: opacity 0.8s ease, transform 0.8s ease;
-  // animation-delay: 0s !important;
+// Prevent horizontal scrolling on all major elements
+html,
+body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
-.animate-in {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
+// Prevent specific components from causing horizontal overflow app-boost-diamonds, app-smarter-solutions,app-footer
+app-homepage,
+app-diamonds-features,
+app-challenges,
+app-testimonials-carousel {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
+// AOS Customizations for mobile
+[data-aos] {
+  pointer-events: none;
+}
+
+[data-aos].aos-animate {
+  pointer-events: auto;
+}
+
+// Mobile-friendly AOS adjustments
+@media (max-width: 768px) {
+  [data-aos-delay] {
+    transition-delay: 0ms !important; // Remove delays on mobile for faster loading
+  }
+
+  [data-aos] {
+    transition-duration: 600ms !important; // Faster animations on mobile
+  }
+}
+
+// Custom AOS animations for infinite effects (phones container)
+// [data-aos="fade-right"][data-aos-easing="ease-out-back"] {
+//   &.aos-animate {
+//     animation: phoneFloat 4s ease-in-out infinite 1s; // Start after AOS animation
+//   }
+// }
+
+// [data-aos="fade-left"][data-aos-easing="ease-out-back"] {
+//   &.aos-animate {
+//     animation: analyticsGlow 4s ease-in-out infinite 1.5s; // Start after AOS animation
+//   }
+// }
+
+// @keyframes phoneFloat {
+
+//   0%,
+//   100% {
+//     transform: translateX(0) translateY(0) scale(1);
+//   }
+
+//   25% {
+//     transform: translateX(8px) translateY(-3px) scale(1.01);
+//   }
+
+//   50% {
+//     transform: translateX(15px) translateY(0) scale(1);
+//   }
+
+//   75% {
+//     transform: translateX(8px) translateY(3px) scale(1.01);
+//   }
+// }
+
+// @keyframes analyticsGlow {
+
+//   0%,
+//   100% {
+//     transform: translateX(0) scale(1);
+//     filter: brightness(1);
+//   }
+
+//   25% {
+//     transform: translateX(-6px) scale(1.01);
+//     filter: brightness(1.05);
+//   }
+
+//   50% {
+//     transform: translateX(-12px) scale(1);
+//     filter: brightness(1.1);
+//   }
+
+//   75% {
+//     transform: translateX(-6px) scale(1.01);
+//     filter: brightness(1.05);
+//   }
+// }
+
+// Animation classes for homepage (overridden by homepage component styles)
 .fade-in-up {
-  animation: fadeInUp 0.8s ease forwards;
-          opacity: 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
 }
 
 .fade-in-right {
-  animation: fadeInRight 0.8s ease forwards;
-          opacity: 0;
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.8s ease;
 }
 
 .fade-in-left {
-  animation: fadeInLeft 0.8s ease forwards;
-    // animation: fadeInLeft 3s ease-out forwards;
-        opacity: 0;
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s ease;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+// Fast homepage animations (defined in homepage component but available globally)
+app-homepage .fade-in-up {
+  transition: all 0.5s ease;
 }
 
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+app-homepage .fade-in-right {
+  transition: all 0.6s ease;
 }
 
-@keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+app-homepage .fade-in-left {
+  transition: all 0.6s ease;
 }
 
-//
-// Animation classes
-// .fade-in-left {
-//   animation: fadeInLeft 3s ease-out forwards;
-//   opacity: 0;
-// }
-
-// .fade-in-right {
-//   animation: fadeInRight 3s ease-out forwards;
-//   opacity: 0;
-// }
-
-// @keyframes fadeInLeft {
-//   from {
-//     opacity: 0;
-//     transform: translateX(-100px);
-//   }
-
-//   to {
-//     opacity: 1;
-//     transform: translateX(0);
-//   }
-// }
-
-// @keyframes fadeInRight {
-//   from {
-//     opacity: 0;
-//     transform: translateX(100px);
-//   }
-
-//   to {
-//     opacity: 1;
-//     transform: translateX(0);
-//   }
-// }
+.animated {
+  opacity: 1 !important;
+  transform: translate(0, 0) scale(1) !important;
+}
 
 .ethereum-icon {
   position: absolute;
@@ -132,6 +167,48 @@ html {
   left: -118px;
   top: 87px;
   transform: rotate(10.292deg);
-  //   box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.80);
   animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(10.292deg);
+  }
+
+  50% {
+    transform: translateY(-20px) rotate(10.292deg);
+  }
+}
+
+// Mobile optimizations
+@media (max-width: 768px) {
+
+  // Reduce transform distances on mobile
+  [data-aos="fade-left"] {
+    transform: translate3d(-30px, 0, 0);
+  }
+
+  [data-aos="fade-right"] {
+    transform: translate3d(30px, 0, 0);
+  }
+
+  [data-aos="fade-up"] {
+    transform: translate3d(0, 20px, 0);
+  }
+
+  // Disable infinite animations on mobile for better performance
+  .phones-container,
+  .data-analytics-container {
+    animation: none !important;
+  }
+}
+
+// Performance optimizations
+@media (prefers-reduced-motion: reduce) {
+  [data-aos] {
+    transition-duration: 0ms !important;
+    animation: none !important;
+  }
 }

@@ -3,7 +3,9 @@
     class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-start gap-12"
   >
     <!-- Left side -->
-    <div class="flex-1 fade-in-left" style="padding-left: 4rem; padding-right: 4rem" >
+    <div class="flex-1" style="padding-left: 4rem; padding-right: 4rem"  data-aos="fade-right"
+        data-aos-duration="800"
+        data-aos-delay="200">
       <h2 class="text-3xl md:text-4xl font-light leading-tight mb-4">
         Building Smarter <br />
         <span class="font-semibold">Solutions Together.</span>
@@ -38,13 +40,20 @@
     <!-- <img src="https://api.builder.io/api/v1/image/assets/TEMP/8b0200166bb13908f289858f7b9c6460f002b78c?width=1171.4896191690395" alt="Looper-3" class="looper-background" style="z-index: -11111;display: block;"> -->
 
     <!-- Right side features -->
-    <div class="flex-1 flex flex-col gap-6 fade-in-right" >
+    <div class="flex-1 flex flex-col gap-6"  data-aos="fade-left"
+        data-aos-duration="800"
+        data-aos-delay="200" >
       <!-- Card 1 -->
       <div
-        class="flex gap-4 items-start p-4 rounded-md border border-white/20 hover:bg-purple-900/10 transition"
+        (click)="setActiveCard(0)"
+        [class]="isCardActive(0)
+          ? 'flex gap-4 items-start p-4 rounded-md border border-[#8800FF] bg-[#180631] transition cursor-pointer'
+          : 'flex gap-4 items-start p-4 rounded-md border border-white/20 hover:bg-purple-900/10 transition cursor-pointer'"
       >
         <div
-          class="w-25 h-25 p-4 rounded-full border border-white flex items-center justify-center"
+          [class]="isCardActive(0)
+            ? 'w-25 h-25 p-4 rounded-full bg-[#8800FF] flex items-center justify-center'
+            : 'w-25 h-25 p-4 rounded-full border border-white flex items-center justify-center'"
         >
           <svg
             width="24"
@@ -72,12 +81,17 @@
         </div>
       </div>
 
-      <!-- Card 2 highlighted -->
+      <!-- Card 2 highlighted by default -->
       <div
-        class="flex gap-4 items-start p-4 rounded-md border border-[#8800FF] bg-[#180631] transition"
+        (click)="setActiveCard(1)"
+        [class]="isCardActive(1)
+          ? 'flex gap-4 items-start p-4 rounded-md border border-[#8800FF] bg-[#180631] transition cursor-pointer'
+          : 'flex gap-4 items-start p-4 rounded-md border border-white/20 hover:bg-purple-900/10 transition cursor-pointer'"
       >
         <div
-          class="w-25 h-25 p-4 rounded-full bg-[#8800FF] flex items-center justify-center"
+          [class]="isCardActive(1)
+            ? 'w-25 h-25 p-4 rounded-full bg-[#8800FF] flex items-center justify-center'
+            : 'w-25 h-25 p-4 rounded-full border border-white flex items-center justify-center'"
         >
           <svg
             width="24"
@@ -107,10 +121,15 @@
 
       <!-- Card 3 -->
       <div
-        class="flex gap-4 items-start p-4 rounded-md border border-white/20 hover:bg-purple-900/10 transition"
+        (click)="setActiveCard(2)"
+        [class]="isCardActive(2)
+          ? 'flex gap-4 items-start p-4 rounded-md border border-[#8800FF] bg-[#180631] transition cursor-pointer'
+          : 'flex gap-4 items-start p-4 rounded-md border border-white/20 hover:bg-purple-900/10 transition cursor-pointer'"
       >
         <div
-          class="w-25 h-25 p-4 rounded-full border border-white flex items-center justify-center"
+          [class]="isCardActive(2)
+            ? 'w-25 h-25 p-4 rounded-full bg-[#8800FF] flex items-center justify-center'
+            : 'w-25 h-25 p-4 rounded-full border border-white flex items-center justify-center'"
         >
           <svg
             width="25"

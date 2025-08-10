@@ -1,4 +1,4 @@
-<section class="diamonds-feature-section" #featuresSection>
+<section class="diamonds-feature-section">
   <!-- Background blur effects -->
   <div class="background-effects">
     <div class="blur-gradient"></div>
@@ -66,7 +66,12 @@
     <!-- Desktop Layout -->
     <div class="desktop-layout hidden lg:flex">
       <!-- Left side - Phone mockups -->
-      <div class="phones-section fade-in-left">
+      <div
+        class="phones-section"
+        data-aos="fade-right"
+        data-aos-duration="800"
+        data-aos-delay="200"
+      >
         <img
           src="https://api.builder.io/api/v1/image/assets/TEMP/00fb4a61edb2d1d44cc4dfbb91e7a6ceee0fc18c?width=868"
           alt="Mobile app showcase"
@@ -108,7 +113,12 @@
       </div>
 
       <!-- Right side - Text content -->
-      <div class="content-section fade-in-right">
+      <div
+        class="content-section"
+        data-aos="fade-left"
+        data-aos-duration="800"
+        data-aos-delay="200"
+      >
         <div class="text-content-desktop">
           <p class="feature-subtitle">Our Diamonds Feature</p>
           <h2 class="feature-title">

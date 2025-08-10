@@ -1,7 +1,14 @@
-<app-homepage></app-homepage>
-<app-diamonds-features ></app-diamonds-features>
-<app-challenges></app-challenges>
-<app-boost-diamonds></app-boost-diamonds>
-<app-smarter-solutions></app-smarter-solutions>
-<app-testimonials-carousel></app-testimonials-carousel>
-<app-footer></app-footer>
+<app-loading
+  *ngIf="showLoading"
+  (loadingComplete)="onLoadingComplete()"
+></app-loading>
+
+<div class="app-content" [class.loading]="showLoading">
+  <app-homepage></app-homepage>
+  <app-diamonds-features></app-diamonds-features>
+  <app-challenges></app-challenges>
+  <app-boost-diamonds></app-boost-diamonds>
+  <app-smarter-solutions></app-smarter-solutions>
+  <app-testimonials-carousel></app-testimonials-carousel>
+  <app-footer></app-footer>
+</div>

@@ -25,12 +25,12 @@
   <header class="header px-[10%]">
     <div class="header-content">
       <img
-        class="logo"
+        class="logo fade-in-left"
         src="https://api.builder.io/api/v1/image/assets/TEMP/8a32e4537f781bc36ed755a1c6e58765b461271c?width=420"
         alt="Logo"
       />
 
-      <div class="nav-container">
+      <div class="nav-container fade-in-right">
         <ng-container *ngFor="let item of navItems; let i = index">
           <!-- Nav item -->
           <div
@@ -103,7 +103,6 @@
   <div class="main-title">
     <span class="gradient-text fade-in-up">I AM DIAMONds</span>
   </div>
-  <!-- style="animation-delay: .5s" -->
 
   <!-- Hero Title -->
   <div class="hero-title fade-in-up">
@@ -175,7 +174,8 @@
   </div>
 
   <!-- Download Section -->
-  <div class="download-section">
+  <div class="download-section" (click)="openDownloadModal()">
+    <!-- <p>x</p> -->
     <svg
       width="269"
       height="74"
@@ -328,9 +328,9 @@
       <!-- Partner Carousel Section -->
       <div class="partner-carousel">
         <!-- Static Powered By Text -->
-        <!-- <div class="powered-by-text">
+        <div class="powered-by-text">
           <span>Powered By.</span>
-        </div> -->
+        </div>
 
         <!-- Dynamic Scrolling Logos -->
         <div class="partner-track">
@@ -570,28 +570,25 @@
   <!-- Download Modal -->
   <div class="modal-backdrop" [class.show]="showDownloadModal"></div>
   <div class="download-modal" [class.show]="showDownloadModal">
-    <h2>Download Our App</h2>
+    <p
+      [class.show]="showDownloadModal"
+      (click)="closeModal()"
+      class="close-button text-shadow"
+      style="cursor: pointer; text-shadow: 5cap; float: right"
+    >
+      X
+    </p>
+    <br />
+    <h2 class="font-semibold">Download Our App</h2>
     <p>Get the best experience on your mobile device</p>
     <div class="store-buttons">
       <div class="store-button">
-        <svg width="24" height="24" viewBox="0 0 24 24">
-          <!-- App Store icon path -->
-          <path
-            d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
-            fill="currentColor"
-          />
-        </svg>
-        <span>App Store</span>
+        <img src="assets/images/app-play/icons8-app-store-48.png" style="width: 100%; height: 100%;" />
+        <!-- <span>App Store</span> -->
       </div>
       <div class="store-button">
-        <svg width="24" height="24" viewBox="0 0 24 24">
-          <!-- Play Store icon path -->
-          <path
-            d="M3 20.5v-17c0-.828.671-1.5 1.5-1.5.357 0 .706.133.972.379L19 12l-13.528 9.621c-.266.246-.615.379-.972.379-.829 0-1.5-.672-1.5-1.5z"
-            fill="currentColor"
-          />
-        </svg>
-        <span>Play Store</span>
+        <img src="assets/images/app-play/icons8-google-play-store-48.png" style="width: 100%; height: 100%;" />
+        <!-- <span>Play Store</span> -->
       </div>
     </div>
   </div>

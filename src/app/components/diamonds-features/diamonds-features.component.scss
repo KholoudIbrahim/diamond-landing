@@ -1,6 +1,7 @@
 .diamonds-feature-section {
-  @apply relative min-h-screen overflow-hidden py-16 px-4;
+  @apply relative min-h-screen py-16 px-4;
   margin-top: 8%;
+  overflow: visible;
 
   .background-effects {
     @apply absolute inset-0 pointer-events-none;
@@ -403,11 +404,27 @@
     margin-top: 2%; // Reduced from 8% to 2% for mobile
   }
 
+  .feature-subtitle {
+    font-size: 20px;
+    text-align: center;
+  }
+.feature-title {
+      font-size: 20px !important;
+      margin-top: 25%;
+}
   .phones-section {
     max-width: 100%;
 
+    .phone-main {
+      // max-width: 70%;
+      width: 217px !important;
+      height: 420px !important;
+    }
+
     .phone-secondary {
-      max-width: 70%;
+      // max-width: 70%;
+      width: 151px !important;
+      height: 293px !important;
     }
 
     .service-card-desktop {
@@ -440,10 +457,12 @@
   }
 
   .feature-subtitle {
-    font-size: 14px;
+    font-size: 20px;
+    text-align: center;
   }
 
-  .feature-title {
-    font-size: 20px;
-  }
+.feature-title {
+  font-size: 20px !important;
+  margin-top: 25%;
+}
 }

@@ -2,11 +2,14 @@
   position: relative;
   width: 100%;
   min-height: 150vh;
-  // overflow: hidden;
   background: transparent;
-  // background: url("https://api.builder.io/api/v1/image/assets/TEMP/8b0200166bb13908f289858f7b9c6460f002b78c?width=2343") no-repeat center center / cover;
-  // background-size: 50%;
-  // z-index: 55555;
+
+
+  // Mobile optimizations
+  @media (max-width: 768px) {
+    min-height: 120vh;
+    padding: 20px 0;
+  }
 }
 
 .background-container {
@@ -274,10 +277,11 @@
 .company-values-section {
   position: relative;
   // margin-top: 400px;
-  padding: 60px 0;
+  // padding: 60px 0;
   width: 100%;
   z-index: 10;
-  padding-top: 55%;
+  // padding-top: 55%;
+  margin-top: -25%;
 }
 
 .values-content {
@@ -571,6 +575,7 @@
     width: 100%;
     max-width: 90vw;
     gap: 30px;
+    flex-direction: row !important;
   }
 
   .values-top-row,
@@ -625,11 +630,27 @@
       font-size: 18px;
     }
   }
+        .smarter-solutions {
+          h2 {
+            margin-inline: -7% !important;
+            width: max-content !important;
+          }
+    
+          p {
+            margin-inline: -7% !important;
+          }
+    
+          button {
+            width: 50% !important;
+            height: 50% !important;
+          }
+        }
 }
 
 @media (max-width: 480px) {
   .company-values-section {
-    margin-top: 100px;
+    // margin-top: 100px;
+    margin-top: -70%;
   }
 
   .values-title .title-decoration {
@@ -666,4 +687,17 @@
       font-size: 16px;
     }
   }
+
+  .values-right {
+    flex-direction: row !important;
+  }
+
+  .company-values-section {
+    margin-top: -70%;
+  }
+
+
 }
+
+  // Simplified styles for AOS compatibility
+  // Infinite animations are now handled via global AOS customizations
