@@ -456,7 +456,7 @@
 // Side Icons Container
 .side-icons-container {
   position: absolute;
-  left: 1294px;
+  left: 1252px;
   top: 174px;
   width: 252px;
   height: 145px;
@@ -466,7 +466,7 @@
 // Right Content
 .right-content {
   position: absolute;
-  left: 1294px;
+  left: 1218px;
   top: 550px;
   z-index: 5;
   margin-bottom: 150px;
@@ -488,7 +488,7 @@
 
 .download-section {
   position: absolute;
-  left: 1330px;
+  left: 1216px;
   top: 731px;
   display: flex;
   width: 266px;
@@ -502,7 +502,7 @@
     cursor: pointer;
     transition: all 0.3s ease;
     filter: drop-shadow(0 4px 12px rgba(132, 45, 255, 0.3));
-            margin-top: 15%;
+    margin-top: 15%;
 
     &:hover {
       transform: translateY(-2px) scale(1.02);
@@ -886,7 +886,7 @@
     svg {
       max-width: 100%;
       height: auto;
-              margin-top: 15%;
+      margin-top: 15%;
     }
   }
 
